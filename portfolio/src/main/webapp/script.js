@@ -55,3 +55,47 @@ function compareTwoSongs() {
     
 
 }
+
+
+
+
+//making COMMENTS button
+
+function getComments() {
+  console.log('Fetching comments counter');
+
+  // The fetch() function returns a Promise because the request is asynchronous.
+  const responsePromise = fetch('/data');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(response => response.json()).then(addComment);
+}
+/** Adds a random quote to the DOM. */
+
+function addComment(comment_json) {
+  console.log('Adding comment_phrase to dom: ' + comment_json);
+
+  const ret = document.getElementById('comments-container');
+//   commentContainer.innerText = comment_json;
+    ret.innerHTML = '';
+    for (let i = 0; i < comment_json.length; i++) {
+        ret.appendChild(createListElement(comment_json[i]));
+    }
+    // console.log(comment_json);
+    // console.log(comment_json[0]);
+    // ret.appendChild(
+    //     createListElement("comment #1"));
+    // ret.appendChild(
+    //     createListElement("comment #2"));
+    // ret.appendChild(
+    //     createListElement("comment #3"));
+    // ret.appendChild(
+    //     createListElement("comment #4"));
+
+    // commentContainer.innerText = ret;
+}
+function createListElement(text) {
+  const liElement = document.createElement('li'); 
+  liElement.innerText = text;
+  return liElement;
+}
