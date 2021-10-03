@@ -64,6 +64,10 @@ public final class ServerStatsServlet extends HttpServlet {
     return json;
   }
 
+  /*
+  {startTime: asdf, "currentTime": asdf, "maxMemory": etc, "usedMemory": etc, "favoriteColors":["green", "blue"]}
+  */
+
   /**
    * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
    * the Gson library dependency to pom.xml.
