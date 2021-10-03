@@ -35,7 +35,11 @@ function getServerStats() {
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {
-  const liElement = document.createElement('li');
+  const liElement = document.createElement('li'); 
   liElement.innerText = text;
   return liElement;
+}
+
+function temp() {
+  console.log("hello");
 }
