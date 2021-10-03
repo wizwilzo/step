@@ -24,7 +24,15 @@ function getRandomQuote() {
   // When the request is complete, pass the response into handleResponse().
   responsePromise.then(handleResponse);
 }
+function getName() {
+  console.log('Fetching name counter');
 
+  // The fetch() function returns a Promise because the request is asynchronous.
+  const responsePromise = fetch('/say_my_name');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(handleName);
+}
 /**
  * Handles response by converting it to text and passing the result to
  * addQuoteToDom().
@@ -40,6 +48,17 @@ function handleResponse(response) {
   // addQuoteToDom() function.
   textPromise.then(addQuoteToDom);
 }
+function handleName(response) {
+    console.log('Handling the response.');
+
+  // response.text() returns a Promise, because the response is a stream of
+  // content and not a simple variable.
+  const textPromise = response.text();
+
+  // When the response is converted to text, pass the result into the
+  // addQuoteToDom() function.
+  textPromise.then(addName);
+}
 
 /** Adds a random quote to the DOM. */
 function addQuoteToDom(quote) {
@@ -47,6 +66,12 @@ function addQuoteToDom(quote) {
 
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
+}
+function addName(name_phrase) {
+  console.log('Adding name_phrase to dom: ' + name_phrase);
+
+  const nameContainer = document.getElementById('name-container');
+  nameContainer.innerText = name_phrase;
 }
 
 /**
@@ -60,6 +85,7 @@ function getRandomQuoteUsingArrowFunctions() {
     document.getElementById('quote-container').innerText = quote;
   });
 }
+
 
 /**
  * Another way to use fetch is by using the async and await keywords. This

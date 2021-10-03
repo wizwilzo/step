@@ -1,6 +1,6 @@
 # Google Student Training in Engineering Program
 
-This repo contains the projects you'll work on for the first half of STEP.
+This repo contains Wilson Xie's portfolio and STEP projects. Online racecar soccer is the worst game of all time.
 This work is based on the [Google Software Product Sprint](https://g.co/softwareproductsprint) program.
 
 To get started:
