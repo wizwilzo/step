@@ -58,6 +58,24 @@ function compareTwoSongs() {
 
 
 
+//NAME BUTTON 11-25-21
+function getNames() {
+    const responsePromise = fetch('/history');
+
+    // When the request is complete, pass the response into handleResponse().
+    responsePromise.then(response => response.json()).then(addName);
+}
+function addName(names_json) {
+  
+    const ret = document.getElementById('names-container');
+      ret.innerHTML = '';
+      for (let i = 0; i < names_json.length; i++) {
+          ret.appendChild(createListElement(names_json[i]));
+      }
+     
+  }
+
+
 
 //making COMMENTS button
 
@@ -71,7 +89,6 @@ function getComments() {
   responsePromise.then(response => response.json()).then(addComment);
 }
 /** Adds a random quote to the DOM. */
-
 function addComment(comment_json) {
   console.log('Adding comment_phrase to dom: ' + comment_json);
 
